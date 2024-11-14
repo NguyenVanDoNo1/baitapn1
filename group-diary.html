@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Diary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #0a0a0a;
+      color: white;
+    }
+    td a {
+      color: #111111;
+      text-decoration: none;
+    }
+    td a:hover {
+      text-decoration: underline;
+    }
+    td[contenteditable] {
+      background-color: #f9f9f9;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Group Diary</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Mã SV</th>
+          <th>Họ tên</th>
+          <th>Công việc được giao</th>
+          <th>Kết quả</th>
+          <th>Tiến độ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true">1</td>
+          <td contenteditable="true">23130063</td>
+          <td contenteditable="true">Nguyễn Văn Đô</td>
+          <td contenteditable="true">Yêu cầu chức năng: <a href="login.html">Login</a></td>
+          <td contenteditable="true">Hoàn thành</td>
+          <td contenteditable="true">100%</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">2</td>
+          <td contenteditable="true">23130317</td>
+          <td contenteditable="true">Phùng Thị Minh Thư</td>
+          <td contenteditable="true">Thiết kế giao diện</td>
+          <td contenteditable="true">Đang làm</td>
+          <td contenteditable="true">50%</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">3</td>
+          <td contenteditable="true">23130063</td>
+          <td contenteditable="true">Nguyễn Văn Điền </td>
+          <td contenteditable="true">Xây dựng chức năng đăng ký</td>
+          <td contenteditable="true">Hoàn thành</td>
+          <td contenteditable="true">100%</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">4</td>
+          <td contenteditable="true">23130111</td>
+          <td contenteditable="true">Lại Thị Hoa</td>
+          <td contenteditable="true">Viết tài liệu hướng dẫn</td>
+          <td contenteditable="true">Chưa làm</td>
+          <td contenteditable="true">0%</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">5</td>
+            <td contenteditable="true">23130043</td>
+            <td contenteditable="true">Thân Văn Danh </td>
+            <td contenteditable="true">Xây dựng chức năng đăng ký</td>
+            <td contenteditable="true">Hoàn thành</td>
+            <td contenteditable="true">100%</td>
+          </tr>
+      </tbody>
+    </table>
+
+    <button id="saveChanges">Save Changes</button>
+  </div>
+
+  <script>
+    // JavaScript to save the changes made to the table (for now, it just logs changes in the console)
+    document.getElementById('saveChanges').addEventListener('click', function() {
+      let rows = document.querySelectorAll('tbody tr');
+      let diaryData = [];
+
+      rows.forEach(row => {
+        let rowData = [];
+        row.querySelectorAll('td').forEach(cell => {
+          rowData.push(cell.innerHTML);
+        });
+        diaryData.push(rowData);
+      });
+
+      console.log('Saved Data:', diaryData);
+      // You can replace this console.log with an actual API call to save the data to the server
+    });
+  </script>
+
+</body>
+</html>

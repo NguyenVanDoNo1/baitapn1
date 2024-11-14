@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: left;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      background-color: #0d0d0e;
+      color: white;
+      padding: 10px;
+    }
+    .tab {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .tab:hover {
+      background-color: #111111;
+    }
+    .tab-content {
+      margin-top: 20px;
+    }
+    .tab-content h2 {
+      color: #080808;
+    }
+    /* Style for the function details */
+    .function-details {
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Projects</h1>
+
+    <div class="tabs">
+      <div class="tab" id="requirement-tab">Requirement</div>
+      <div class="tab" id="design-tab">Design</div>
+      <div class="tab" id="implement-tab">Implementation</div>
+    </div>
+
+    <div class="tab-content" id="tab-content">
+      <!-- Content of tabs will be dynamically loaded here -->
+    </div>
+  </div>
+
+  <script>
+    const requirementContent = `
+      <h2>Project Requirement</h2>
+      <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+        <thead style="background-color: black; color: white;">
+          <tr>
+            <th>STT</th>
+            <th>Chức năng</th>
+            <th>Người đề xuất</th>
+            <th>Người thiết kế</th>
+            <th>Người hiện thực</th>
+            <th>Thời gian dự kiến</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">Login</td>
+            <td contenteditable="true">Nguyễn Văn A</td>
+            <td contenteditable="true">Trần Thị B</td>
+            <td contenteditable="true">Nguyễn Văn C</td>
+            <td contenteditable="true">24-09-2018 đến 01-10-2018</td>
+            <td contenteditable="true">Lập kế hoạch</td>
+          </tr>
+          <tr>
+            <td contenteditable="true">2</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true">3</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true">4</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td contenteditable="true">5</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <!-- More rows can be added -->
+        </tbody>
+      </table>
+      <button id="saveChanges">Save Changes</button>
+    `;
+
+    const designContent = `
+      <h2>Project Design</h2>
+      <p>Thiết kế giao diện của hệ thống được phác thảo dưới dạng wireframes.</p>
+      <!-- Image placeholder -->
+      <img src="./img/h1.jpg" alt="Design Example" width="80%">
+    `;
+
+    const implementContent = `
+      <h2>Project Implementation</h2>
+      <p>Click on a function below to view its implementation details:</p>
+      <ul>
+        <li><a href="#" id="login">Login Function</a></li>
+        <li><a href="#" id="register">Register Function</a></li>
+        <li><a href="#" id="forgot-password">Forgot Password Function</a></li>
+      </ul>
+      <div id="function-content" class="function-details">
+        <!-- Function details will be displayed here -->
+      </div>
+    `;
+
+    // Function content for each function
+    const loginFunction = `
+      <h3>Login Function</h3>
+      <p>Triển khai chức năng đăng nhập.</p>
+      <pre>
+        <code>
+          // HTML code for login form
+          &lt;form action="login.php" method="POST"&gt;
+            &lt;label for="username"&gt;Username:&lt;/label&gt;
+            &lt;input type="text" id="username" name="username"&gt;
+            &lt;label for="password"&gt;Password:&lt;/label&gt;
+            &lt;input type="password" id="password" name="password"&gt;
+            &lt;button type="submit"&gt;Login&lt;/button&gt;
+          &lt;/form&gt;
+        </code>
+      </pre>
+    `;
+
+    const registerFunction = `
+      <h3>Register Function</h3>
+      <p>Triển khai chức năng đăng ký.</p>
+      <pre>
+        <code>
+          // HTML code for register form
+          &lt;form action="register.php" method="POST"&gt;
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email"&gt;
+            &lt;label for="password"&gt;Password:&lt;/label&gt;
+            &lt;input type="password" id="password" name="password"&gt;
+            &lt;button type="submit"&gt;Register&lt;/button&gt;
+          &lt;/form&gt;
+        </code>
+      </pre>
+    `;
+
+    const forgotPasswordFunction = `
+      <h3>Forgot Password Function</h3>
+      <p>Triển khai chức năng quên mật khẩu.</p>
+      <pre>
+        <code>
+          // HTML code for forgot password form
+          &lt;form action="forgot-password.php" method="POST"&gt;
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email"&gt;
+            &lt;button type="submit"&gt;Send Reset Link&lt;/button&gt;
+          &lt;/form&gt;
+        </code>
+      </pre>
+    `;
+
+    // Set initial tab content (Requirement)
+    document.getElementById('tab-content').innerHTML = requirementContent;
+
+    // Add event listeners for tab switching
+    document.getElementById('requirement-tab').addEventListener('click', () => {
+      document.getElementById('tab-content').innerHTML = requirementContent;
+    });
+
+    document.getElementById('design-tab').addEventListener('click', () => {
+      document.getElementById('tab-content').innerHTML = designContent;
+    });
+
+    document.getElementById('implement-tab').addEventListener('click', () => {
+      document.getElementById('tab-content').innerHTML = implementContent;
+
+      // Add event listeners for each function
+      document.getElementById('login').addEventListener('click', function() {
+        document.getElementById('function-content').innerHTML = loginFunction;
+      });
+      document.getElementById('register').addEventListener('click', function() {
+        document.getElementById('function-content').innerHTML = registerFunction;
+      });
+      document.getElementById('forgot-password').addEventListener('click', function() {
+        document.getElementById('function-content').innerHTML = forgotPasswordFunction;
+      });
+    });
+  </script>
+
+</body>
+</html>

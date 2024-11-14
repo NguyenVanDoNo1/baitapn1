@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    .menu {
+      margin: 20px 0;
+    }
+    .menu a {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #070707;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .menu a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chào mừng bạn, User!</h1>
+  </header>
+
+  <div class="content">
+    <h2>Trang chính</h2>
+    <div class="menu">
+      <a href="group-diary.html">Group Diary</a>
+      <a href="projects.html">Projects</a>
+    </div>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      // Quay lại trang đăng nhập
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>

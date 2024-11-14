@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .login-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    input[type="text"], input[type="password"], button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #111111;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #111111;
+    }
+    a {
+      color: rgb(33, 33, 255);
+      text-decoration: none;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <p id="error-message" class="error-message" style="display:none;">Sai tên đăng nhập hoặc mật khẩu!</p>
+    <form id="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Login</button>
+      
+      <a href="password.html">Forgot Password?</a> | 
+      <a href="register.html">Register</a>
+    </form>
+  </div>
+
+  <script>
+    // Dữ liệu giả lập (thông thường sẽ kiểm tra từ cơ sở dữ liệu)
+    const users = {
+      'admin': '1234',
+      '1': '2'
+    };
+
+    // Xử lý khi nhấn nút login
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // Ngừng gửi form
+
+      // Lấy dữ liệu từ form
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Kiểm tra thông tin đăng nhập
+      if (users[username] && users[username] === password) {
+        // Nếu đúng, chuyển hướng đến trang chính (trang dashboard.html)
+        window.location.href = 'dashboard.html';
+      } else {
+        // Nếu sai, hiển thị thông báo lỗi
+        document.getElementById('error-message').style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
